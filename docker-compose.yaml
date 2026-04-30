@@ -1,0 +1,64 @@
+services:
+  virtuoso:
+    image: openlink/virtuoso-opensource-7
+    ports:
+      - "8890:8890"
+    environment:
+      - DBA_PASSWORD=benchpass
+    volumes:
+      - ./data/virtuoso:/database
+      - ./data/import:/usr/share/proj
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+
+  qlever-old:
+    image: adfreiburg/qlever
+    container_name: qlever-old
+    ports:
+      - "7001:7001"
+    user: "1000:1000"
+    volumes:
+      - ./data/qlever-old:/data
+    working_dir: /data
+    entrypoint: ["qlever-server"]
+    command: ["-i", "old", "-p", "7001", "-j", "4", "-m", "4 GB"]
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+    restart: unless-stopped
+
+  qlever-new:
+    image: adfreiburg/qlever
+    container_name: qlever-new
+    ports:
+      - "7002:7001"
+    user: "1000:1000"
+    volumes:
+      - ./data/qlever-new:/data
+    working_dir: /data
+    entrypoint: ["qlever-server"]
+    command: ["-i", "new", "-p", "7001", "-j", "4", "-m", "4 GB"]
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+    restart: unless-stopped
+
+  rdf4j:
+    image: eclipse/rdf4j-workbench:latest
+    ports:
+      - "8080:8080"
+    # volumes:
+      # - ./webModified2.xml:/usr/local/tomcat/webapps/rdf4j-server/WEB-INF/web.xml:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+

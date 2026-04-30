@@ -1,0 +1,29 @@
+store, representation, query, mean_ms +/- ci95_ms, sd_ms, 
+rdf4j, mem-old, Q1_Props, 30.711 +/- 0.461, 7.437
+rdf4j, mem-new, Q1_Props, 28.405 +/- 0.140, 2.252
+rdf4j, native-old, Q1_Props, 29.343 +/- 0.142, 2.292
+rdf4j, native-new, Q1_Props, 29.189 +/- 0.247, 3.980
+virtuoso, old, Q1_Props, 30.210 +/- 0.148, 2.387
+virtuoso, new, Q1_Props, 29.230 +/- 0.199, 3.211
+qlever, old, Q1_Props, 87.741 +/- 2.241, 36.164
+qlever, new, Q1_Props, 51.785 +/- 2.037, 32.873
+
+
+rdf4j, mem-old, Q2_Range, 92.822 +/- 1.397, 22.538
+rdf4j, mem-new, Q2_Range, 86.578 +/- 1.440, 23.240
+rdf4j, native-old, Q2_Range, 472.655 +/- 2.494, 40.239
+rdf4j, native-new, Q2_Range, 400.684 +/- 2.277, 36.743
+virtuoso, old, Q2_Range, 74.487 +/- 0.675, 10.898
+virtuoso, new, Q2_Range, 64.878 +/- 0.681, 10.992
+qlever, old, Q2_Range, 133.772 +/- 1.096, 17.689
+qlever, new, Q2_Range, 75.455 +/- 1.079, 17.405
+
+
+rdf4j, mem-old, Q3_Aggregation, 250.880 +/- 1.749, 28.213
+rdf4j, mem-new, Q3_Aggregation, 154.839 +/- 1.048, 16.914
+rdf4j, native-old, Q3_Aggregation, 1320.371 +/- 5.891, 95.041
+rdf4j, native-new, Q3_Aggregation, 739.510 +/- 3.308, 53.367
+virtuoso, old, Q3_Aggregation, 126.358 +/- 1.113, 17.955
+virtuoso, new, Q3_Aggregation, 87.402 +/- 0.867, 13.993
+qlever, old, Q3_Aggregation, 5532.554 +/- 16.875, 272.269
+qlever, new, Q3_Aggregation, 91.104 +/- 1.413, 22.804
