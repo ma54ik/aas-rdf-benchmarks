@@ -8,6 +8,7 @@ This repository contains the scripts and datasets needed to evaluate the current
 
 - Docker >= 3.8
 - Python >= 3.12.3
+- pip >= 24.0
 - Bash (tested under WSL 2)
 - curl >= 8.19.0
 - bc >= 1.08.2
@@ -33,8 +34,9 @@ cd ../..
 Generate the old dataset:
 
 ```bash
+cp Datasets/json/dataset.json Datasets/rdfOld
 cd Datasets/rdfOld
-./installMain.sh
+sudo ./installMain.sh
 source aas_prod_env/bin/activate
 python3 genRDFOldPerformant.py
 cd ../..
@@ -43,8 +45,9 @@ cd ../..
 Generate the new dataset:
 
 ```bash
+cp Datasets/json/dataset.json Datasets/rdfNew
 cd Datasets/rdfNew
-./installExperimental.sh
+sudo ./installExperimental.sh
 source aas_prod_env/bin/activate
 python3 genRDFNew.py
 cd ../..
