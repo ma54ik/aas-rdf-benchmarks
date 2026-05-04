@@ -77,7 +77,9 @@ mkdir -p data/qlever-old data/qlever-new
 sudo chown -R 1000:1000 data/qlever-old data/qlever-new
 ```
 
-##### TTL-files
+##### Copy TTL-files
+
+> ⚠️ **Important:** Adjust the commands, if you decided to generate your own dataset.
 
 ```bash
 cp .../aas_production_env_100100100_old_random_optimized.ttl data/qlever-old/
