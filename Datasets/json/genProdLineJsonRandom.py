@@ -172,7 +172,7 @@ config = {
 dataset = generate_aas_dataset(**config)
 
 # Save to file
-with open("aas_production_env_100100100_random.json", "w") as f:
+with open("dataset.json", "w") as f:
     json.dump(dataset, f, indent=2)
 
 print(f"Successfully generated {len(dataset['assetAdministrationShells'])} AAS entities with randomized values.")

@@ -56,7 +56,7 @@ def bind_namespaces(graph):
     graph.bind("aas-multilanguageproperty", Namespace("https://admin-shell.io/aas/3/0/MultiLanguageProperty/"))
 
 # import the json dataset
-file_path = 'aas_production_env_123_random.json'
+file_path = '../../dataset.json'
 
 try:
 	with open(file_path, 'r') as inputFile:
@@ -109,7 +109,7 @@ def execute_logic():
             output_string += "\n"
 
     # save the string in output file
-    with open('aas_production_env_123_new_20260408_random.ttl', 'w') as output_file:
+    with open('datasetNew.ttl', 'w') as output_file:
         output_file.write(output_string)
 
 # execute logic function

@@ -9,8 +9,8 @@ from py_aas_rdf.models.concept_description import ConceptDescription
 from py_aas_rdf.models.asset_administraion_shell import AssetAdministrationShell
 
 # --- Configuration ---
-INPUT_FILE = 'aas_production_env_100100100_random.json'
-OUTPUT_FILE = 'aas_production_env_100100100_old_random_optimized.ttl'
+INPUT_FILE = '../..dataset.json'
+OUTPUT_FILE = 'datasetOld.ttl'
 MAX_WORKERS = os.cpu_count()  # Uses all available CPU cores
 
 def bind_namespaces(graph):
