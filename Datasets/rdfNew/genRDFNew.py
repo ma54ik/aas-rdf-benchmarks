@@ -56,7 +56,7 @@ def bind_namespaces(graph):
     graph.bind("aas-multilanguageproperty", Namespace("https://admin-shell.io/aas/3/0/MultiLanguageProperty/"))
 
 # import the json dataset
-file_path = '../../dataset.json'
+file_path = '../json/dataset.json'
 
 try:
 	with open(file_path, 'r') as inputFile:

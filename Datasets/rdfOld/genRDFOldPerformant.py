@@ -9,7 +9,7 @@ from py_aas_rdf.models.concept_description import ConceptDescription
 from py_aas_rdf.models.asset_administraion_shell import AssetAdministrationShell
 
 # --- Configuration ---
-INPUT_FILE = '../..dataset.json'
+INPUT_FILE = '../json/dataset.json'
 OUTPUT_FILE = 'datasetOld.ttl'
 MAX_WORKERS = os.cpu_count()  # Uses all available CPU cores
 
