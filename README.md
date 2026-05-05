@@ -70,7 +70,7 @@ tar -xf Datasets/rdfNew/newRepresentation.tar.gz -C TripleStoresScripts/virtuoso
 > ⚠️ **Important:** QLever requires pre-built index files. Complete this step
 > before running `docker compose up`.
 
-##### Prepare directories on the server
+##### Prepare directories on the server (start is in the benchmark directory)
 
 ```bash
 mkdir -p data/qlever-old data/qlever-new
@@ -79,7 +79,7 @@ sudo chown -R 1000:1000 data/qlever-old data/qlever-new
 
 ##### Copy TTL-files
 
-> ⚠️ **Important:** Adjust the commands, if you decided to generate your own dataset.
+> ⚠️ **Important:** Adjust the commands according to your setup.
 
 ```bash
 cp .../aas_production_env_100100100_old_random_optimized.ttl data/qlever-old/
@@ -96,7 +96,6 @@ cp TripleStoresScripts/qlever/settings.json data/qlever-new/
 ##### Create index
 
 ```bash
-
 # Old dataset
 
 docker run --rm \
@@ -145,8 +144,26 @@ cd ../..
 
 #### Virtuoso
 
+##### Copy the two datasets into the import directory on the server
+
 ```bash
-./TripleStoresScripts/virtuoso/uploadBothDatasets.sh
+cp .../aas_production_env_100100100_old_random_optimized.ttl ./data/import/
+cp .../aas_production_env_100100100_new_20260330_random.ttl ./data/import/
+```
+
+##### Load the datasets into the triple store
+
+> Note: The container name `triplestores-virtuoso-1` may differ depending on
+> your Docker Compose project name. Adjust it if necessary (e.g. `virtuoso`).
+
+```bash
+docker exec -it triplestores-virtuoso-1 isql 1111 dba benchpass exec="
+DELETE FROM DB.DBA.load_list;
+ld_dir('/usr/share/proj', 'aas_production_env_100100100_old_random_optimized.ttl', 'http://example.org/old');
+ld_dir('/usr/share/proj', 'aas_production_env_100100100_new_20260330_random.ttl', 'http://example.org/new');
+rdf_loader_run();
+checkpoint;
+"
 ```
 
 ### 4. Verify
@@ -243,4 +260,4 @@ Results reported in resultsOfficial.csv were obtained on:
 
 ## License
 
-[MIT](Link to file)
+[MIT](LICENSE)
