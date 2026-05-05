@@ -133,10 +133,19 @@ docker compose up -d
 
 #### RDF4J
 
+Create repositories:
+> ⚠️ **Important:** Before using any bash script, initialize the VM_IP variable with the IP address of the server hosting the triple stores.
+
 ```bash
 cd TripleStoresScripts/rdf4j
 ./createRepoRdf4jMemOld.sh
 ./createRepoRdf4jMemNew.sh
+```
+
+Upload datasets:
+> ⚠️ **Important:** This may take a couple of minutes.
+
+```bash
 ./uploadDatasetMemOld.sh
 ./uploadDatasetMemNew.sh
 cd ../..
